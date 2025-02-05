@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* margin은 값을 1개, 2개(상하,좌우), 4개(위,오,아,왼 .시계방향) 받을 수 있음 
+                          margin: 100px 200px  ,margin: 100px 100px 50px 40px    */
+        div{
+            margin:  100px; ;       /* margin -> 바깥쪽 여백  특정한 방향으로 여백을 주고싶으면 margin-top   , margin-left .......설정해줘야됨 
+                                        만약 위아래 좌우 모두 10px주고 싶으면 그냥 margin 10px 쓰면됨 */
+        }
+        .box1{
+            border : 1px dotted black;
+            /* border-width: 1px; 위에 한 줄이랑 똑같다 컨트롤 스페이스는 밑에거로 해야 나온다 ex) solid
+            border-style: solid;
+            border-color: black;        */
+            width: 70px;
+            height: 70px;
+            text-align: center;           /* 좌우정렬 */
+            line-height: 70px;              /* height 과 같은 픽셀로 하면 정중앙에 위치함 */
+        }
+            /* border ->테두리   ,  border-color   ,border-radius ,border-width  자주씀*/
+        .box2{ 
+            border :1px dashed rgb(98, 98, 129);
+            width: 70px;
+            height: 70px;
+            text-align: center;         
+            line-height: 70px;
+            background-color: rgb(233, 252, 155);
+            border-top-color: bisque;     /*위에 선의 색만 바꿔줌*/
+            border-radius: 50%;     /*모서리 둥굴게    border- ctrl+space 누르면 여러 설정이 가능함*/
+            box-shadow: 1px 1px 1px black;                            
+        }
+
+        .pd{                /*패딩은 안쪽 여백*/
+            padding: 30px;      /*사용법은 margin과 똑같다*/
+        }
+        .box5 {
+            border-width: 3px;
+            border-style: solid;
+            border-color: blue ;
+            width: 300px ;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1 pd">box1</div>
+    <div class="box2">box2</div>
+
+    
+    
+</body>
+</html>
