@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .txt1 {
+            color: blue;
+        }
+
+        .txt2 {
+            color: red;
+
+            font-size: 50px;
+            font-style: italic;
+        }
+
+        .txt3 {
+            font-weight: bold;
+            background-color: aquamarine;
+        }
+
+        .txt4 {
+            background-color: aquamarine;
+        }
+
+        .gold {
+            background-color: gold;
+        }
+
+        .txt6 {
+            color: red
+        }
+
+        .accent {
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="txt1">
+        <div>
+            1.확장자가<span class="txt3 txt2">.css</span> 인 파일을 참조하는 방법
+        </div>
+        <!--              <span style="background-color : aqua  ">  이렇게 스타일을 써서 직접 적용하는것도 가능하다   3->2->1을 우선순위로 적용됨                   -->
+        <div>
+            2.<span class="txt2 accent">style</span> 태그안에 정의하는 방법
+        </div>
+        <div style="font-weight: bold; background-color: aquamarine; color: blue;">
+            3.태그안에 style로 직접 넣는 방법
+
+        </div>
+    </div>
+
+    <br>
+
+    <span class="gold">
+        ※ <span class="txt6"> inline </span> 과 <span class="txt1"> block </span> 차이 잘 기억하자
+    </span>
+
+
+
+    <div>
+
+    </div>
+
+
+</body>
+
+</html>
