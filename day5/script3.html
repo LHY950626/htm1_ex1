@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 500px;
+            margin: 10px auto;
+        }
+
+        #time{
+            margin: 50px;
+            font-size: 40px;
+            color: blue;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+<div id="container">
+    <div id="time"></div>
+</div>
+</body>
+</html>
+<script>
+
+//     function fnAlert(){
+//         alert("안녕?");
+//     }
+
+// //  setTimeout(fnalert())   이렇게 쓰면 안됨 fnalert()는 실행됨  
+//     setTimeout(fnAlert,5000);  5초 ->단위 ms임
+ 
+//     //익명 함수 한번만 쓸거니까 그냥 바로 만들어 사용함
+//     setTimeout(function(){
+//         alert("5초 후 출력!");
+//     },5000);
+
+
+// //   화살표함수
+// //   setTimeout(()=>{}, 5000)
+// setTimeout(()=>{
+//     alert("5초후 출력");
+// }, 5000)
+
+
+//설정한 주기만큼 호출해주는 함수
+// setInterval(()=>{
+//     alert("5초에 한번씩 출력!")
+// },5000);
+
+
+setInterval(()=>{
+    let datetime = new Date();
+    let time = datetime.getHours() + ":" + datetime.getMinutes() + ":" +datetime.getSeconds() 
+    let obj = document.querySelector("#time");
+    obj.innerHTML=time;
+},1000);   // 현재시간 구해서 1초주기로 바꿔줌
+
+</script>

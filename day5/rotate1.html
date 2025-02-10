@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            height: 100px;
+            width : 100px;
+            background-color: violet;
+            margin : 20px;
+            transition: transform 3s;    /*  transition: all 3s   ->3초에 걸쳐 바뀜 디폴트값이라 all 생략 가능   ,  transition: transform 3s; -> transform만 3초에걸쳐 진행 나머지 바로진행*/
+        }
+        .box:hover{
+            transform: rotate(45deg);    /* 45deg= 45도      -45deg면 반대방향으로 */
+            width: 300px;
+            height: 300px;
+            background-color: aquamarine;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    
+</body>
+</html>

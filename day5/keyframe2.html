@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            background-color: blue;
+            width: 200px;
+            height: 200px;
+            margin: 50px;
+
+            /* animation-name: rotate;
+            animation-duration:3s;    
+            anim */
+            /* animation-iteration-count: infinite;      
+            animation-direction: alternate;   */
+
+
+            animation: rotate 3s infinite, bgC 3s infinite;
+
+            /* animation: rotate 3s infinite alternate , hi 3s infinite alternate ;     이런식으로 , 를 써서 2개 이상의 애니메이션 효과 줄 수 있다*/
+        }
+
+        @keyframes rotate {
+            from {
+                transform: perspective(230px) rotatex(0deg) rotatey(0deg);
+            }
+
+            50% {
+                transform: perspective(230px) rotatex(180deg) rotateY(0deg);
+            }
+
+            to {
+                transform: perspective(230px) rotatex(180deg) rotateY(180deg);
+            }
+        }
+
+
+        @keyframes bgC {
+            from {
+                background-color: red;
+            }
+
+            0% {
+                background-color: aqua;
+            }
+
+            25% {
+                background-color: blueviolet;
+            }
+
+            50% {
+                background-color: brown;
+            }
+
+            75% {
+                background-color: coral;
+            }
+
+            to {
+                background-color: blue;
+            }
+        }
+
+
+
+        /* @keyframes hi {
+            from{
+                transform: perspective(230px) rotatex(0deg) rotatey(0deg);
+            }   
+            50%{
+                transform: perspective(230px) rotatex(180deg) rotateY(0deg);
+            }
+            to{
+                transform: perspective(230px) rotatex(180deg) rotateY(180deg);
+            }         
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+
+</body>
+
+</html>

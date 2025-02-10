@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            color:blue;
+        }
+        .txt1{
+            font-weight: bold;
+        }                            /*  div, .txt1 ,#id ->선택자 */
+        #id{    
+            font-size:30px;
+        }
+        span{                   /*모든 span태그에 적용 (div태그안에 있어도) */
+            background-color: aquamarine;
+        }
+        div span{            /* div태그 안에 있는 모든 span태그에 적용 직계자식 아니고 손자 증손자 등등등 이여도 <div><a><span> 적용됨*/
+            font-size: 30px;
+        }
+        div > span{          /*직계자식만 */
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="txt1">               <!--  div의 직계자식 = <a>   ,<a>의 직계자식 = <span>  -->
+       <a><span>자바!!!</span></a>     
+    </div>
+    <div class="txt1">
+        <span>HTML!!!</span>
+     </div>
+    <span>오라클!!!</span>
+</body>
+</html>

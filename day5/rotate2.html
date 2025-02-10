@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            height: 100px;
+            width : 100px;
+            background-color: violet;
+            margin : 100px;
+            transition: transform 1s;    /*  transition: all 3s   ->3초에 걸쳐 바뀜 디폴트값이라 all 생략 가능   ,  transition: transform 3s; -> transform만 3초에걸쳐 진행 나머지 바로진행*/
+        }
+        .box:hover{ 
+            /* transform: rotatey(45deg);    rotatex  ->x축으로 이동    rotatey ->y축으로 이동  rotatez ->z축으로 이동   */
+            /* transform: scale(0.5);      사이즈 변경  소수점 쓰면 크기 감소 */
+            transform: scalex(2);     /* x축만 변경*/
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    
+</body>
+</html>

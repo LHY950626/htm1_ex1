@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<STYle>
+    #txt{
+        font-size: 50px;
+        color: red;
+        
+    }
+
+
+</STYle>
+
+</head>
+<body>
+    <div id="txt"> 자바는 재밌다!</div>
+    <div>
+        <button onclick="fnColorChange()">색 변경</button>
+
+    </div>
+
+</body>
+
+
+</html>
+
+<script>
+    function fnColorChange(){
+        let txt =document.querySelector("#txt");
+        if(txt.style.color =="blue"){    /*red로 적으면 안됨 외부의 값(style 의 txt) 이라 적용이 안됨 */
+            txt.style.color = "red";
+        } else{
+            txt.style.color ="blue";
+            txt.style.backgroundColor = "#eee"; /*css에서 -가 붙는 모든애들은 자바스크립트에서 카멜표기법을 쓴다*/
+        }
+    }  /*let ->문자,숫자등등 객체의 데이터타입 자바스크립트에선 let  , var로 씀*/
+</script>

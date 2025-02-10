@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .card{
+       
+        width: 250px;
+        height:400px;
+        margin: 200px;
+        background-image: url(/day2/media/DIGICARD.jpg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat; 
+        position: relative;
+
+    }
+    .img{
+        width: 240px;
+        height:380px;
+        margin: 200px;
+        background-image: url(/day2/media/war.jpg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: absolute;
+        top:0;
+        left:13px;
+       
+    }
+
+    .img:hover{
+        
+        animation: turn 1s , size 2s ,opacity1 2s;
+    }
+    
+
+
+@keyframes turn{
+    from{
+
+    }to{
+       
+        transform: rotate(360deg);
+
+    }
+}
+
+
+
+
+@keyframes size{
+    from{
+
+    }to{
+        transform: scale(2);
+
+    }
+}
+
+    @keyframes opacity1{
+        from{
+
+        }to{
+            transform: opacity0;
+        }
+
+    }
+
+
+</style>
+</head>
+<body>
+    <div class="card"></div>
+    <div class="img"></div>
+</body>
+</html>

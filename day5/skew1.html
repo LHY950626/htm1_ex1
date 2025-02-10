@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            height: 100px;
+            width : 100px;
+            background-color: violet;
+            margin : 100px;
+            transition: transform 1s;   
+        }
+        .box:hover{ 
+        
+            /* transform: skewX(30deg);       skew -> 비튼다  skewX(30deg) -> X축으로 30도 비튼다 */
+            transform: skew(30deg,40deg);    /*x축 30도 y축 40도*/
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    
+</body>
+</html>

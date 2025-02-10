@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+       .box{
+            margin: 10px;
+            width: 280px;
+            height: 390px;
+            background-image: url(/day2/media/poket.jpg);
+            background-size:contain;
+            transition: transform 3s ,background-image 1s 1s;
+    }
+    .box:hover {
+            
+            /* margin: 10px;
+            width: 280px;
+            height: 390px;
+            animation:back 3s ,backimg 3s; */
+          transform:rotateY(180deg);
+          background-image: url(/day2/media/poback.PNG);
+            background-size: contain ;
+        }
+
+        @keyframes back {
+            from { transform:rotateX(0deg) rotateY(0deg); 
+
+            }
+
+          95%{ background-image: url(/day2/media/poback.PNG);} 
+            to { transform: rotateX(0deg) rotateY(180deg); 
+            }
+        }
+
+    
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    
+</body>
+</html>
