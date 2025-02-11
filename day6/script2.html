@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 800px;
+            height: 800px;
+            margin: 10px auto;
+            border: 2px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img src="/day2/media/una.jpg" id="una">
+    </div>
+</body>
+</html>
+<script>            
+    // let container = document.querySelector("#container");
+    // container.onclick = ()=>{     //container 에 onclick이라는 기능 생성해줌 container.onclick
+    //     alert("클릭!");
+    // }
+    
+    let container = document.querySelector("#container");
+    container.onclick = (e)=>{     //container 에 onclick이라는 기능 생성해줌 container.onclick
+    console.log(e);
+    alert(e.pageX + " , " + e.pageY);     // 페이지 위치를 안내문으로 알려줌 
+    };
+    
+
+
+    let img =document.querySelector("#una");
+    img.onclick = function(){
+        alert(this /*img 대신 this 씀*/.src);
+    }
+
+    
+    // let img =document.querySelector("#una");
+    // img.onclick = function(){
+    //     this.src = "/day2/media/civa.jpg";          /* ->이렇게 하면 클릭시 사진 바뀜 */
+    //     }
+
+
+   
+</script>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>과목 목록</h1>
+    <h3 id="js">자바스크립트</h3>
+    <hr>
+    <div id="list">
+        <p id="java">자바</p>
+        <p id="oracle" style="color: red;">오라클</p>
+        <p id="html">html</p>
+    </div>
+    <hr>
+    <!-- 버튼영역 -->
+    <!-- 버튼을 눌러 fnAppend()함수를 발생 -->
+    <button onclick="fnAppend()">appendChild</button>
+    <button onclick="fnBefore()">insertBefore</button>
+    <button onclick="fnCreateNode()">createElement</button>
+    <button onclick="fnCreateAttr()">createAttribute</button>
+    <button onclick="fnRemoveNode()">removeChild</button>
+    <button onclick="fnRemoveAttr()">removeAttribute</button>
+    <button onclick="fnClone()">cloneNode</button>
+</body>
+</html>
+<script>    
+function fnCreateAttr(){
+    let list = document.querySelector("#list"); // id가 'list'인 요소를 찾음
+    let jquery = document.createElement("P");  // 새로운 <p> 요소를 생성
+    jquery.innerText = jquery;                  // 'jquery'라는 텍스트를 <p> 요소에 삽입
+
+    let style = document.createAttribute("style"); // style 속성 생성
+    style.value = "color: blue; font-weight : bold;"; // 스타일 값 설정
+    jquery.setAttributeNode(style);               // 생성한 스타일 속성을 <p> 요소에 추가
+
+    list.appendChild(jquery);                     // <p> 요소를 id가 'list'인 요소의 자식으로 추가
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//append 이어붙인다
+    function fnAppend(){
+        let list = document.querySelector("#list");
+        let js = document.getElementById("js");
+        list.appendChild(js);
+    }
+
+    function fnBefore(){
+        let list = document.querySelector("#list");
+        let js = document.getElementById("js");
+        let oracle = document.getElementById("oracle");
+        list.insertBefore(js, oracle); //오라클을 자바스크립트뒤에 나오도록
+    }
+
+    
+    function fnCreateNode(){
+        let list = document.querySelector("#list");
+        let jquery = document.createElement("P");
+        // jquery.innerText ="<strong>jquery</strong>";   //글씨 넣는거 <p>jquery</p>
+         jquery.innerHTML ="<strong>jquery</strong>";  //<strong>까지 쓰려면 HTML써야됨
+        list.appendChild(jquery);
+    }
+
+    function fnCreateAttr(){
+        let list = document.querySelector("#list");
+        let jquery = document.createElement("P");
+        jquery.innerText =jquery;   //글씨 넣는거 <p>jquery</p>
+
+        let style = document.createAttribute("style");
+        style.value = "color: blue; font-weight : bold;";
+        jquery.setAttributeNode(style);
+        list.appendChild(jquery);
+    }
+
+    function fnRemoveNode(){
+        let list = document.querySelector("#list");
+        let oracle = document.getElementById("oracle");
+        list.removeChild(oracle);
+    }
+
+    function fnRemoveAttr(){
+       let oracle = document.getElementById("oracle");
+        oracle.removeAttribute("style");
+    }
+
+    function fnClone(){
+        let list = document.querySelector("#list");
+        let js = document.getElementById("js");
+        list.appendChild(js.cloneNode(true));
+    }
+
+</script>
