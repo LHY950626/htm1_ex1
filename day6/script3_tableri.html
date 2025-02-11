@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+            table, tr, td{
+            border: 1px solid black;
+            text-align: center;
+            border-collapse: collapse; /*겹치는 선 통합*/
+            padding: 5px 10px;
+        }
+        input{
+            width: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <input id="rCnt" value="1" >행<input id="cCnt" value="1">열<button onclick="fnCrTb()">만들기</button>
+    <div id="content"> </div>
+
+
+</body>
+</html>
+<script>
+     function fnCrTb(){
+        let rows = document.querySelector("#rCnt").value;
+        let cols = document.querySelector("#cCnt").value;
+
+        let table = document.createElement("table");
+        for(i=0; i<rows ;i++){
+            let tr = document.createElement("tr");   
+            for(j=0; j<cols ; j++){
+                let td = document.createElement("td");
+                tr.innerHTML = i;
+            }  
+        }
+
+     }
+
+
+</script>

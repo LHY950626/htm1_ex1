@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+ 
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <input type="radio" name="subject" value="java">java
+    <input type="radio" name="subject" value="html">html
+    <input type="radio" name="subject" value="oracle">oracle
+    <input type="radio" name="subject" value="jquery">jquery
+    <button onclick="fnSubject()">선택!</button>
+</body>
+
+</html>
+<script>
+    function fnSubject() {
+        let subject = document.querySelector("input[name='subject']:checked");  /*  "input[name='subject'] 인풋에 네임이 서브젝트인 애들 선택  checked 써서 1개만됨 */
+        if (subject) {
+            alert(subject.value);
+        } else {
+            alert("선택 안함");
+        }
+
+    }   
+</script>
