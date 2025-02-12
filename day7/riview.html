@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=delete" />
+
+    <style>
+        .container {
+            margin: 100px 200px auto;
+        }
+
+        .title {
+            font-size: 50px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">메모장</div>
+        <div style="margin-top: 20px;">
+            <input id="text">
+            <button onclick="fnCreate()">추가</button>
+        </div>
+        <hr>
+        <ul id="list"></ul>
+ 
+    </div>
+</body>
+
+</html>
+<script>
+    function fnCreate() {
+        let list = document.querySelector("#list");
+        let li = document.createElement("li");
+        let txt = document.getElementById("text").value;
+        li.innerHTML = txt + '<span class="material-symbols-outlined">delete</span>'
+        list.appendChild(li);
+
+        li.onclick =function(e){
+            if(!confirm("정말 삭제하시겠습니까?")){
+                return;
+            };
+            list.removeChild(e.target);
+        }
+
+        list.appendChild(li);
+        document.querySelector("#txt").value="";
+
+    }
+</script>

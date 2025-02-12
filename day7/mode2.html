@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .light-mode {
+            background-color: rgb(255, 255, 255);
+        }
+
+        .dark-mode {
+            background-color: #383838;
+            color: rgb(255, 255, 119);
+        }
+
+        #mode {
+            cursor: pointer;
+        }
+
+        #container {margin: 70px 500px auto;
+            border: 0.5px solid black;
+            width: 600px
+        }
+        #btn{
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            padding : 10px;
+            background-color: white;
+            border: 1px solid black;
+        }
+
+        /*다크모드 일때 버튼이 바뀌는 클래스*/
+        .dark-mode #btn{
+            background-color: #222;
+            border: 1px solid white;
+            color: white;
+        }     
+    </style>
+
+</head>
+
+<body class="light-mode">
+    <div>
+       
+    </div>
+    </div>
+    <div>
+        <div id="container">
+            <button id="btn" onclick="fnMode()">다크 모드</button>
+            <h1> 프로그래밍 재밌다~</h1>
+            <ul>
+                <li>자바</li>
+                <li>자바스크립트</li>
+                <li>jQuery</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    function fnMode() {
+        let body = document.body;
+        body.classList.toggle('dark-mode');
+        body.classList.toggle('light-mode');
+
+        let btn = document.querySelector("#btn");
+        if(body.classList.contains('dark-mode')){
+            btn.innerHTML ='라이트 모드';
+        }else{
+            btn.innerHTML ='다크 모드';
+        };
+    }
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="fnUserList()">호출</button>
+    <div id="contents"
+  
+</body>
+</html>
+<script>
+    function fnUserList(){
+        $.ajax({    //  $ => jquery의 약자
+            url : "https://jsonplaceholder.typicode.com/users",
+            dataType : "json",
+            type : "GET",
+            data: {},
+            success : function(data) {   //서버통신(url)이 실행되면 success가 실행된다 
+                console.log(data[0]);
+                // -> ArrayList
+                // -> length : 10
+                // [{},{},{},{},{},{}]
+              let contents = document.querySelector("#contents");
+              contents.innerHTML = data;
+            }        
+        });
+    }
+</script>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    메인페이지~!!
+    <button onclick="fnPopup()">팝업!</button>
+</body>
+</html>
+<script>                        
+        function fnPopup(){   
+            let left =(screen.availWidth-300) /2;      //(브라우저 크기 - 팝업넓이) /2
+            let top =(screen.availHeight-300)/2;
+                      //파라미터값,파라미터값, 크기
+         window.open('time.html','time',`width=300 , height=300 , left=${left}, top=${top}`);   //팝업창 브라우저 정중앙에 놓는법
+        }                              //백틱 써야함    
+
+//availWidth ==>  1920
+//availHeight ==>  1040
+
+</script>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <img id="img" src="/day2/media/una.jpg" width="500" height="300">
+</body>
+</html>
+<script>
+    let img = document.querySelector("img");
+                //마우스가 올라갔을 때 (호버랑 비슷)
+    img.addEventListener("mouseover",()=>{
+        img.src ="../day2/media/bigsize.jpg";
+    } );
+    img.addEventListener("mouseout", ()=>{
+        img.src ="../day2/media/una.jpg";
+    })
+</script>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메모장</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f5f5f7;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 15px;
+            font-size: 18px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+        }
+
+        .button {
+            background-color: #007aff;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 15px;
+            padding: 15px;
+            width: 80%;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0051a8;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .list {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .list li {
+            background-color: #f0f0f5;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        .list li:hover {
+            background-color: #e0e0e5;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">메모장</div>
+        <input type="text" id="textInput" placeholder="메모를 입력하세요">
+        <button class="button" onclick="addMemo()">추가</button>
+        <ul id="memoList" class="list"></ul>
+    </div>
+
+    <script>
+        // 메모 목록을 저장하는 함수
+        function saveMemos(memos) {
+            localStorage.setItem("memos", JSON.stringify(memos));
+        }
+
+        // 로컬 저장소에서 메모 목록을 가져오는 함수
+        function loadMemos() {
+            const memos = localStorage.getItem("memos");
+            return memos ? JSON.parse(memos) : [];
+        }
+
+        // 메모를 추가하는 함수
+        function addMemo() {
+            const textInput = document.getElementById("textInput");
+            const text = textInput.value.trim();
+
+            if (text === "") {
+                alert("메모를 입력하세요!");
+                return;
+            }
+
+            const memos = loadMemos();
+            memos.push(text);
+            saveMemos(memos);
+
+            textInput.value = "";  // 입력 필드 초기화
+            renderMemos();  // 메모 목록 다시 그리기
+        }
+
+        // 메모 목록을 화면에 렌더링하는 함수
+        function renderMemos() {
+            const memos = loadMemos();
+            const memoList = document.getElementById("memoList");
+            memoList.innerHTML = "";  // 기존 목록 초기화
+
+            memos.forEach((memo, index) => {
+                const li = document.createElement("li");
+                li.textContent = memo;
+
+                li.onclick = () => {
+                    deleteMemo(index);  // 클릭 시 삭제 함수 호출
+                };
+
+                memoList.appendChild(li);
+            });
+        }
+
+        // 메모를 삭제하는 함수
+        function deleteMemo(index) {
+            if (confirm("정말 삭제하시겠습니까?")) {
+                const memos = loadMemos();
+                memos.splice(index, 1);
+                saveMemos(memos);
+                renderMemos();  // 삭제 후 메모 목록 다시 그리기
+            }
+        }
+
+        // 페이지 로드 시 메모 목록 렌더링
+        renderMemos();
+    </script>
+</body>
+
+</html>
