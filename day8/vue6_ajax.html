@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<style>
+    table,
+    tr,
+    td,
+    th {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px 10px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <div style="margin-bottom: 5px;">
+            <select v-model="selectItem">
+                <option value="userId">아이디</option>
+                <option value="userName">이름</option>
+            </select>
+            <input v-model="keyword">
+            <button @click="fnUserList">검색</button>
+        </div>
+
+        <table>
+            <tr>
+                <th>아이디</th>
+                <th>이름</th>
+                <th>이메일</th>
+                <th>웹사이트</th>
+            </tr>
+            <tr v-for="item in list"> <!--알아서 반복문으로 리스트 출력 -->
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td> <!--맵(item) 안에 이름 불러오기 -->
+                <td>{{item.email}}</td>
+                <td>{{item.website}}</td>
+            </tr>
+        </table>
+
+        <button @click="fnUserList()">클릭</button>
+    </div>
+</body>
+
+</html>
+
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {    
+                // 변수            변수선언하는곳만 바디에 접근가능 
+                list: [],
+                userId: "",               //input 에 v-model=""하고  여기서 변수선언하기
+                selectitem: "userName"
+            };
+        },
+        methods: {
+            // 함수(메소드)
+            fnUserList: function () {
+                let self = this;
+                let param = {};   //파라미터
+                if(self.keyword !=""){
+                param = self.selectItem =="userId" ? {id: self.keyword} : {name : self.keyword};
+                }
+                
+                // if(self.selectItem == "userId"){
+                //     param = {id : self.keyword};
+                // }else{
+                //     param = {name : self.keyword};
+                // }
+
+
+                $.ajax({    //  $ => jquery의 약자
+                    url: "https://jsonplaceholder.typicode.com/users",
+                    dataType: "json",
+                    type: "GET",
+                    data: param,    //  {id:3} 입력하면 id가 3인 데이터만 가져옴
+                    success: function (data) {   //서버통신(url)이 실행되면 success가 실행된다 
+                        console.log(data);
+                        self.list = data;
+                    }
+                });
+            }
+        },
+        mounted() {
+            // 처음 시작할 때 실행되는 부분
+            let self = this;
+            self.fnUserList();
+        }
+    });
+    app.mount('#app');
+</script>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<style>
+    table,
+    tr,
+    td,
+    th {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px 10px;
+        text-align: center;
+    }
+
+    .violet-txt {
+        color: violet;
+    }
+
+    .blueviolet-txt {
+        color: blueviolet;
+    }
+
+    a,
+    a:link {
+        color: black;
+        text-decoration: none;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <table>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>이메일</th>
+                <th>웹사이트</th>
+                <th>삭제</th>
+            </tr>
+            <tr v-for="(item, index) in list">
+                <td>{{index+1}}</td>
+                <td>
+                    <a href="javascript:;" @click="fnSetUser()">{{item.name}}</a>
+                </td>
+                <td> <!--td에 안하고 <span>을 쓰는 이유 1.가독성 :위에서 3번째 td는 이메일인데 
+                            td에 쓰면 else문까지 써야되서 3번째도 이메일이아닌 name으로 보임 -->
+                    <span v-if="(index+1)%2==1" class="violet-txt">{{item.email}}</span>
+                    <span v-else class="blueviolet-txt">{{item.email}}</span>
+                </td>
+                <td>{{item.website}}</td>
+                <td><button>삭제</button></td>
+            </tr>       
+        </table>
+        <div v-if="viewFlg">
+            상세정보:
+            <div>이름 : {{user.name}}</div>
+            <div>번호 : {{user.phone}}</div>
+            <div>회사명 : {{user.company.name}}</div>
+            <div>주소 : {{user.address.street}}</div> 
+            <buttopn @click="viewFlg = !viewFlg">되돌아가기 </buttopn>
+        </div>
+    </div>
+</body>             
+</html>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                // 변수
+                list: [],
+                user: {},                 
+                viewFlg : false
+                
+            };
+        },
+        methods: {
+            // 함수(메소드)
+            fnUserList: function () {
+                var self = this;
+                $.ajax({
+                    url: "https://jsonplaceholder.typicode.com/users",
+                    dataType: "json",
+                    type: "GET",
+                    data: {},
+                    success: function (data) {
+                        self.list = data;
+                    }
+                });
+            },   //{name:홍길동,age:30}
+            fnSetUser: function (item){
+                let self = this;
+                console.log(item);
+                self.user = item;
+                self.viewFlg = true;
+
+            }
+        },
+        mounted() {
+            // 처음 시작할 때 실행되는 부분
+            let self = this;
+            self.fnUserList();
+                                    
+        }
+    });
+ 
+    app.mount('#app');
+</script>

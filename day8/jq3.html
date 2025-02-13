@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <ul>
+        <li>자바</li>
+        <li>오라클</li>
+        <li><span>HTML</span></li>
+        <li>jQuery</li>
+        <li>파이썬</li>
+    </ul>
+    <div>
+        <button id="btn" onclick="fnSelector()">클릭!</button>
+    </div>
+</body>
+</html>
+<script>
+    function fnSelector(){
+    //    $("li:has(span)").css("color","red");   스팬테그가 있는 li만 선택
+    // $("li:eq(2)").css("color","red");     => 위치 인덱스여서 0부터 시작 eq(2)  => 0,1,2  이기 때문에 HTML이 선택된다
+    // $("li:gt(2)").css("color","red");   => 인덱스 2보다 큰애들 html보다 큰애들
+    // $("li:lt(2)").css("color","red");   => 인덱스 2보다 작은애들
+    //   $("li:even").css("color","red"); =>짝수 인덱스만
+    // $("li:odd").css("color","red"); =>홀수 인덱스만
+    // $("li:first").css("color","red"); =>첫번째
+    // $("li:last").css("color","red"); =>마지막 
+    }
+</script>
